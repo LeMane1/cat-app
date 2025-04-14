@@ -1,6 +1,7 @@
 'use client'
 
 import './cat-picture.sass'
+import Image from 'next/image'
 
 interface ICatPictureProps {
   catPictureUrl:string | null;
@@ -11,11 +12,9 @@ export default function CatPicture({catPictureUrl}:ICatPictureProps) {
     <div className="cat-picture-wrapper">
       {
         catPictureUrl ?
-          <img
+          <Image
             src={catPictureUrl}
             alt='Cat picture'
-            width='100%'
-            height='100%'
           />
           :
           <span className='no-cats-label'>

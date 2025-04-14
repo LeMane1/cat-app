@@ -7,7 +7,7 @@ import {useAppSelector} from "@/lib/hooks";
 import {useEffect} from "react";
 
 export default function CatContainer(){
-  const [refetch, {data, isLoading, isFetching, isError, isSuccess}] = useLazyGetCatsQuery()
+  const [refetch, {data, isLoading, isFetching, isError}] = useLazyGetCatsQuery()
   const {isGetCatsAbilityEnabled, isAutoRefreshEnabled} = useAppSelector(state => state.catsReducer)
   
   useEffect(() => {
