@@ -1,0 +1,20 @@
+.checkbox-wrapper
+  display: flex
+  flex-direction: row
+  gap: 10px
+  align-items: center
+
+input[type="checkbox"]
+  accent-color: white
+  width: 20px
+  height: 20px
+  cursor: pointer
+
+  &:disabled
+    cursor: not-allowed
+
+.checkbox-label
+  cursor: pointer
+
+  input:disabled + &
+    cursor: not-allowed

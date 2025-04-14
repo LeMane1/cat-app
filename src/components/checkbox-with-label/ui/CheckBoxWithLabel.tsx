@@ -1,5 +1,7 @@
 'use client'
 
+import './checkbox-with-label.sass'
+
 interface ICheckBoxWithLabelProps {
   labelText: string;
   onChange: () => void;
@@ -15,9 +17,15 @@ export default function CheckBoxWithLabel(
     isDisabled = false
   }: ICheckBoxWithLabelProps) {
   return (
-    <label>
-      <input type="checkbox" onChange={onChange} checked={isChecked} disabled={isDisabled}/>
-      <span>{labelText}</span>
+    <label className='checkbox-wrapper'>
+      <input
+        type="checkbox"
+        onChange={onChange}
+        checked={isChecked}
+        disabled={isDisabled}
+        className='checkbox'
+      />
+      <span className='checkbox-label'>{labelText}</span>
     </label>
   )
 }
