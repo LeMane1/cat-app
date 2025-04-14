@@ -7,7 +7,7 @@ export const catsApi = createApi({
     baseUrl: 'https://api.thecatapi.com',
     prepareHeaders: (headers: Headers): Headers => {
       headers.set('accept', 'application/json')
-      headers.set('x-api-key', 'live_iBzlZVGgMO6vLOOIuZV5YV3jN0rZBTngccXo1bh3F1bKV1GffbzG3Faxj5W8On7k')
+      headers.set('x-api-key', process.env.CATS_API_KEY ?? '')
       return headers
     },
   }),
