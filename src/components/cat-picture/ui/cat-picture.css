@@ -1,0 +1,10 @@
+img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.no-cats-label {
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=cat-picture.css.map */

@@ -1,0 +1,7 @@
+import './spinner.sass'
+
+export default function Spinner(){
+  return (
+    <span className='loader'></span>
+  )
+}

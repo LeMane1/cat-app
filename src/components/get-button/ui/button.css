@@ -1,0 +1,25 @@
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #636363;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  height: 40px;
+  max-height: 40px;
+}
+button:hover {
+  background: #575757;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/*# sourceMappingURL=button.css.map */

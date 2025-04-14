@@ -1,51 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 
-export interface MainState {
-  currentScreenshotId: number;
-  isModalOpen: boolean;
-  isDrawerOpened: boolean;
-  isSearchParametersModalOpened: boolean;
-  snackMessage: string;
+export interface DefaultState {
+  isGetCatsAbilityEnabled: boolean;
+  isAutoRefreshEnabled: boolean;
 }
 
-const initialState: MainState = {
-  currentScreenshotId: 0,
-  isModalOpen: false,
-  isDrawerOpened: false,
-  isSearchParametersModalOpened: false,
-  snackMessage: ''
+const initialState: DefaultState = {
+  isGetCatsAbilityEnabled: true,
+  isAutoRefreshEnabled: false,
 }
 
-export const mainSlice = createSlice({
-  name: 'main',
+export const catsSlice = createSlice({
+  name: 'cats',
   initialState,
   reducers: {
-    changeCurrentScreenshotId: (state, action: PayloadAction<number>) => {
-      state.currentScreenshotId = action.payload
+    changeGetCatsAbility: (state) => {
+      state.isGetCatsAbilityEnabled = !state.isGetCatsAbilityEnabled
+      if (!state.isGetCatsAbilityEnabled) state.isAutoRefreshEnabled = false
     },
-    changeModalState: (state) => {
-      state.isModalOpen = !state.isModalOpen
+    changeAutoRefresh: (state) => {
+      state.isAutoRefreshEnabled = !state.isAutoRefreshEnabled
     },
-    changeDrawerState: (state) => {
-      state.isDrawerOpened = !state.isDrawerOpened
-    },
-    changeSearchParametersModalState: (state, action: PayloadAction<boolean>) => {
-      state.isSearchParametersModalOpened = action.payload
-    },
-    changeSnackMessage: (state, action: PayloadAction<string>) => {
-      state.snackMessage = action.payload
-    }
   },
 })
 
 // Action creators are generated for each case reducer function
 export const {
-  changeCurrentScreenshotId,
-  changeModalState,
-  changeDrawerState,
-  changeSearchParametersModalState,
-  changeSnackMessage
-} = mainSlice.actions
+  changeGetCatsAbility,
+  changeAutoRefresh
+} = catsSlice.actions
 
-export default mainSlice.reducer
+export default catsSlice.reducer
