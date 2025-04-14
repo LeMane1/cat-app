@@ -7,7 +7,7 @@ import {useAppSelector} from "@/lib/hooks";
 import {useEffect} from "react";
 
 export default function CatContainer(){
-  const [refetch, {data, isLoading, isFetching}] = useLazyGetCatsQuery()
+  const [refetch, {data, isLoading, isFetching, isError, isSuccess}] = useLazyGetCatsQuery()
   const {isGetCatsAbilityEnabled, isAutoRefreshEnabled} = useAppSelector(state => state.catsReducer)
   
   useEffect(() => {
@@ -24,9 +24,7 @@ export default function CatContainer(){
     }
   }, [refetch, isAutoRefreshEnabled]);
   
-  const handleOnClick = () => {
-    refetch()
-  }
+  const handleOnClick = () => refetch()
   
   return (
     <>
@@ -37,6 +35,10 @@ export default function CatContainer(){
       />
       
       <CatPicture catPictureUrl={data ? data[0].url : null}/>
+      
+      {
+        isError && <span>Something went wrong</span>
+      }
     </>
   )
 }
