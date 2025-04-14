@@ -37,7 +37,7 @@ export default function CatContainer(){
       <CatPicture catPictureUrl={data ? data[0].url : null}/>
       
       {
-        isError && <span>Something went wrong</span>
+        isError && <span>Something went wrong. Please try again</span>
       }
     </>
   )
